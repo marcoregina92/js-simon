@@ -11,8 +11,9 @@
 const numeri = randomNumbers(5, 1, 100);
 console.log(numeri);
 
+// Stampo array in DOM e utilizzo join per distanziare i numeri stampati
+document.getElementById("message").innerHTML = numeri.join(" - ");
 
- 
 
 
 
