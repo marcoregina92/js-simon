@@ -14,8 +14,13 @@ console.log(numeri);
 // Stampo array in DOM e utilizzo join per distanziare i numeri stampati
 document.getElementById("message").innerHTML = numeri.join(" - ");
 
+// Timeout di 30s che elimina il div nel DOM
+setTimeout(hiddenNumbers, 2*1000);
 
-
+// Funzione che fa scomparire i numeri 
+function hiddenNumbers() {
+    document.getElementById("message").innerHTML = "";    
+}
 
 
 // Funzione che crea dei numeri casuali diversi tra loro. 
