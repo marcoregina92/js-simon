@@ -6,13 +6,15 @@
 // * Dividete in piccoli problemi la consegna.
 // * Individuate gli elementi di cui avete bisogno per realizzare il programma.
 
+
+// La funzione randomNumbers genera dei numeri casuali diversi tra loro e stampo in pagina
 const numeri = randomNumbers(5, 1, 100);
 console.log(numeri);
 
 
-// Genera 5 numeri casuali con una funzione 
+ 
 
-console.log(numeri);
+
 
 
 // Funzione che crea dei numeri casuali diversi tra loro. 
@@ -32,6 +34,7 @@ function randomNumbers(quanti, min, max) {
     return numeri;
 }
 
+// Genera 5 numeri casuali con una funzione
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
