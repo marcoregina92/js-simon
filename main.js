@@ -15,11 +15,30 @@ console.log(numeri);
 document.getElementById("message").innerHTML = numeri.join(" - ");
 
 // Timeout di 30s che elimina il div nel DOM
-setTimeout(hiddenNumbers, 2*1000);
+setTimeout(hiddenNumbers, 3000);
+// Timeout con parte in ritardo 
+setTimeout(userNumbers, 3200);
+
 
 // Funzione che fa scomparire i numeri 
 function hiddenNumbers() {
-    document.getElementById("message").innerHTML = "";    
+    document.getElementById("message").innerHTML = ""; 
+    
+}
+
+// Funzione che fa partire il prompt 
+function userNumbers () {
+    
+    let numeri = [];
+    // Utilizzo un ciclo per far partire il prompt per 5 volte e fa inserire i numeri all'utente.
+    while (numeri.length<5) {
+        let nuovoNumero =  Number(prompt("Inserisci il primo numero")); 
+        if (!numeri.includes(nuovoNumero)) {
+            numeri.push(nuovoNumero);             
+        }
+    }
+    console.log(numeri);
+    return numeri;
 }
 
 
