@@ -6,20 +6,32 @@
 // * Dividete in piccoli problemi la consegna.
 // * Individuate gli elementi di cui avete bisogno per realizzare il programma.
 
+const numeri = randomNumbers(5, 1, 100);
+console.log(numeri);
+
 
 // Genera 5 numeri casuali con una funzione 
 
-let numeri = [];
+console.log(numeri);
 
-while (numeri.length < 5) {
-    const nuovoNumero = getRndInteger (1, 100);
-    if(!numeri.includes(nuovoNumero)) {
-        numeri.push (nuovoNumero )
+
+// Funzione che crea dei numeri casuali diversi tra loro. 
+// 5 sta per la quantità di numeri che voglio generare
+// min sta per il range minimo
+// max sta per il range massimo 
+function randomNumbers(quanti, min, max) {
+    let numeri = [];
+
+    while (numeri.length < quanti) {
+        const nuovoNumero = getRndInteger(min, max);
+        if (!numeri.includes(nuovoNumero)) {
+            numeri.push(nuovoNumero)
+        }
     }
-}
-console.log (numeri);
 
+    return numeri;
+}
 
 function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
-  }
+    return Math.floor(Math.random() * (max - min)) + min;
+}
