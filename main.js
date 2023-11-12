@@ -15,16 +15,17 @@ console.log(numeri);
 document.getElementById("message").innerHTML = numeri.join(" - ");
 
 // Timeout di 30s che elimina il div nel DOM
-setTimeout(hiddenNumbers, 3000);
-// Timeout con parte in ritardo 
-setTimeout(userNumbers, 3200);
-
-
-// Funzione che fa scomparire i numeri 
-function hiddenNumbers() {
+setTimeout(function() {
     document.getElementById("message").innerHTML = ""; 
-    
-}
+}, 3000);
+
+// Timeout che parte in ritardo 
+setTimeout(function() {
+    let numeriUtente = userNumbers();
+    let numeriIndovinati = guessedNumbers(numeri, numeriUtente);
+    document.getElementById("message").innerHTML = "Hai indovinato " + numeriIndovinati.length + " numeri"; 
+}, 3200);
+
 
 // Funzione che fa partire il prompt 
 function userNumbers () {
@@ -32,13 +33,30 @@ function userNumbers () {
     let numeri = [];
     // Utilizzo un ciclo per far partire il prompt per 5 volte e fa inserire i numeri all'utente.
     while (numeri.length<5) {
-        let nuovoNumero =  Number(prompt("Inserisci il primo numero")); 
+        let nuovoNumero =  Number(prompt("Inserisci i numeri che hai visualizzato")); 
         if (!numeri.includes(nuovoNumero)) {
             numeri.push(nuovoNumero);             
+        } else {
+            alert("Hai inserito un doppione. Riprova!")
         }
     }
-    console.log(numeri);
     return numeri;
+}
+
+
+// Funzione che controlla i numeri indovinati 
+function guessedNumbers(arrayOriginale, arrayDaConfrontare) {
+
+    let result = [];
+
+    for (let i = 0; i < arrayOriginale.length; i++) {
+        if ( arrayDaConfrontare.includes(arrayOriginale[i])) {
+            result.push(arrayOriginale[i]);
+        }        
+    }
+
+    return result;
+
 }
 
 
